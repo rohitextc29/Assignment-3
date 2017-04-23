@@ -1,4 +1,4 @@
-package com.example.macbookpro.touristinfo;
+package com.example.macbookpro.touristinfo.adapter;
 
 import android.content.Context;
 import android.content.Intent;
@@ -10,10 +10,12 @@ import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.TextView;
-import android.widget.Toast;
 
-import com.bumptech.glide.Glide;
-import com.bumptech.glide.load.engine.DiskCacheStrategy;
+import com.example.macbookpro.touristinfo.bean.NewsInfoItemBean;
+import com.example.macbookpro.touristinfo.R;
+import com.example.macbookpro.touristinfo.activity.FullNewsInformationActivity;
+import com.example.macbookpro.touristinfo.database.DatabaseHelper;
+import com.squareup.picasso.Picasso;
 
 import java.util.List;
 
@@ -26,17 +28,18 @@ public class NewInformationRecyclerViewAdapter  extends RecyclerView.Adapter<New
     private List<NewsInfoItemBean> newsList;
     private Context context;
     private String strTitle;
-    String font_size;
-    String show_image;
-    String background;
-    DatabaseHelper mdbhelper;
+    private String fontsize;
+    private String showimage;
+    private String background;
+    private DatabaseHelper mdbhelper;
 
-    public NewInformationRecyclerViewAdapter(List<NewsInfoItemBean> newsList, Context context,String strTitle,String font_size,String show_image,String background){
+
+    public NewInformationRecyclerViewAdapter(List<NewsInfoItemBean> newsList, Context context,String strTitle,String fontsize,String showimage,String background){
         this.newsList=newsList;
         this.context=context;
         this.strTitle=strTitle;
-        this.font_size=font_size;
-        this.show_image=show_image;
+        this.fontsize=fontsize;
+        this.showimage=showimage;
         this.background=background;
         mdbhelper=new DatabaseHelper(this.context,strTitle);
     }
@@ -80,30 +83,37 @@ public class NewInformationRecyclerViewAdapter  extends RecyclerView.Adapter<New
         holder.author.setText(data.getAuthor());
         holder.publishedAt.setText(data.getPublishedAt());
 
-        if(font_size.toLowerCase().trim().equals("Small")){
+        if(fontsize.toLowerCase().trim().equals("small")){
             holder.title.setTextSize(TypedValue.COMPLEX_UNIT_SP, context.getResources().getDimension(R.dimen.txt_title_small));
             holder.author.setTextSize(TypedValue.COMPLEX_UNIT_SP, context.getResources().getDimension(R.dimen.txt_author_small));
             holder.publishedAt.setTextSize(TypedValue.COMPLEX_UNIT_SP, context.getResources().getDimension(R.dimen.txt_datetime_small));
-        }else if(font_size.toLowerCase().trim().equals("Medium")){
+        }else if(fontsize.toLowerCase().trim().equals("medium")){
             holder.title.setTextSize(TypedValue.COMPLEX_UNIT_SP, context.getResources().getDimension(R.dimen.txt_title_medium));
             holder.author.setTextSize(TypedValue.COMPLEX_UNIT_SP, context.getResources().getDimension(R.dimen.txt_author_medium));
             holder.publishedAt.setTextSize(TypedValue.COMPLEX_UNIT_SP, context.getResources().getDimension(R.dimen.txt_datetime_medium));
-        }else if(font_size.toLowerCase().trim().equals("Large")){
+        }else if(fontsize.toLowerCase().trim().equals("large")){
             holder.title.setTextSize(TypedValue.COMPLEX_UNIT_SP, context.getResources().getDimension(R.dimen.txt_title_large));
             holder.author.setTextSize(TypedValue.COMPLEX_UNIT_SP, context.getResources().getDimension(R.dimen.txt_author_large));
             holder.publishedAt.setTextSize(TypedValue.COMPLEX_UNIT_SP, context.getResources().getDimension(R.dimen.txt_datetime_large));
         }
 
-        if(!show_image.trim().equals("true")){
+        if(!showimage.trim().equals("true")){
             holder.newImageView.setVisibility(View.GONE);
         }else {
             holder.newImageView.setVisibility(View.VISIBLE);
         }
 
-        Glide.with(context).load(data.getUrlToImage())
+        /*Glide.with(context).load(data.getUrlToImage())
                 .crossFade()
                 .thumbnail(0.5f)
                 .diskCacheStrategy(DiskCacheStrategy.ALL)
+                .into(holder.newImageView);
+           */
+
+        Picasso.with(context)
+                .load(data.getUrlToImage())
+                .resize(150, 100)
+                .centerCrop()
                 .into(holder.newImageView);
 
         holder.buttonView.setOnClickListener(new View.OnClickListener() {
@@ -112,14 +122,20 @@ public class NewInformationRecyclerViewAdapter  extends RecyclerView.Adapter<New
 
                 mdbhelper.saveInDatabase(newsList.get(position).getTitle().toString());
 
-                Intent intent=new Intent(context, FullNewInformationActivity.class);
+                Intent intent=new Intent(context, FullNewsInformationActivity.class);
                 intent.putExtra("title",newsList.get(position).getTitle().toString());
+                intent.putExtra("strTitle",strTitle);
                 intent.putExtra("url",newsList.get(position).getUrl().toString());
+                intent.putExtra("imageurl",newsList.get(position).getUrlToImage());
+                intent.putExtra("description",newsList.get(position).getDescription());
+                System.out.println("imageurl - "+newsList.get(position).getUrlToImage());
+                System.out.println("description - "+newsList.get(position).getDescription());
                 context.startActivity(intent);
                 //Toast.makeText(context,newsList.get(position).getTitle(),Toast.LENGTH_SHORT).show();
-
             }
         });
+
+
 
         holder.indicator.setBackgroundResource(R.drawable.non_acknowledged);
 

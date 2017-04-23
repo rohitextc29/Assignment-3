@@ -1,4 +1,4 @@
-package com.example.macbookpro.touristinfo;
+package com.example.macbookpro.touristinfo.bean;
 
 import java.util.HashMap;
 

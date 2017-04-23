@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:weightSum="2"
+    tools:context="com.example.macbookpro.touristinfo.activity.FullNewsInformationActivity">
+
+    <ScrollView
+        android:layout_weight="1.9"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+        <LinearLayout
+            android:orientation="vertical"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+            <ImageView
+                android:id="@+id/newsImageView"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                app:srcCompat="@mipmap/ic_launcher_round" />
+            <TextView
+                android:id="@+id/titleTextVew"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="gsngkfbgndlnhlfcgdlhnlcf" />
+            <TextView
+                android:id="@+id/descriptionTextView"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="gxgkbgkdxdfngndgonxgondi" />
+        </LinearLayout>
+    </ScrollView>
+
+
+    <Button
+        android:id="@+id/readmoreButton"
+        android:layout_weight="0.1"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Read More" />
+</LinearLayout>

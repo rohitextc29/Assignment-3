@@ -1,4 +1,4 @@
-package com.example.macbookpro.touristinfo;
+package com.example.macbookpro.touristinfo.database;
 
 import android.content.Context;
 import android.database.sqlite.SQLiteDatabase;

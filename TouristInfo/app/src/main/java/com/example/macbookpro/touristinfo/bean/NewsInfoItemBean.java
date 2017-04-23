@@ -1,4 +1,4 @@
-package com.example.macbookpro.touristinfo;
+package com.example.macbookpro.touristinfo.bean;
 
 /**
  * Created by macbookpro on 09/04/17.
