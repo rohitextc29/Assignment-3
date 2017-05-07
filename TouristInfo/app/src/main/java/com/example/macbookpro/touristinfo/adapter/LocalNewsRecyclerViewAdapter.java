@@ -7,15 +7,11 @@ import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.TextView;
 
 import com.example.macbookpro.touristinfo.R;
 import com.example.macbookpro.touristinfo.bean.LocalNewsBean;
-import com.example.macbookpro.touristinfo.bean.NewsInfoItemBean;
-import com.example.macbookpro.touristinfo.database.DatabaseHelper;
-import com.squareup.picasso.Picasso;
 
 import java.io.File;
 import java.util.List;

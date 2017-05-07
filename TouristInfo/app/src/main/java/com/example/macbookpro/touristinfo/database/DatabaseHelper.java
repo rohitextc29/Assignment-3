@@ -7,7 +7,6 @@ import android.database.sqlite.SQLiteDatabase;
 
 import com.example.macbookpro.touristinfo.bean.LocalNewsBean;
 import com.example.macbookpro.touristinfo.bean.NewsItem;
-import com.example.macbookpro.touristinfo.bean.SettingItem;
 
 import java.util.ArrayList;
 import java.util.List;

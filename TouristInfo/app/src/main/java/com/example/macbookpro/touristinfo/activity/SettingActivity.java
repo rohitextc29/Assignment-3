@@ -13,7 +13,6 @@ import android.widget.RadioGroup;
 import android.widget.Toast;
 
 import com.example.macbookpro.touristinfo.R;
-import com.example.macbookpro.touristinfo.bean.SettingItem;
 import com.example.macbookpro.touristinfo.database.DatabaseHelper;
 
 /**

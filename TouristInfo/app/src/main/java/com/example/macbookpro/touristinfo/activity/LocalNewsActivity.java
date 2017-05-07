@@ -1,7 +1,7 @@
 package com.example.macbookpro.touristinfo.activity;
 
-import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.view.MenuItem;
@@ -10,7 +10,6 @@ import android.widget.TextView;
 
 import com.example.macbookpro.touristinfo.R;
 import com.example.macbookpro.touristinfo.adapter.LocalNewsRecyclerViewAdapter;
-import com.example.macbookpro.touristinfo.adapter.NewInformationRecyclerViewAdapter;
 import com.example.macbookpro.touristinfo.bean.LocalNewsBean;
 import com.example.macbookpro.touristinfo.database.DatabaseHelper;
 

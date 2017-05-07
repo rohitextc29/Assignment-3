@@ -3,7 +3,6 @@ package com.example.macbookpro.touristinfo.activity;
 import android.app.ProgressDialog;
 import android.content.Intent;
 import android.content.SharedPreferences;
-import android.os.AsyncTask;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.v7.app.AppCompatActivity;
@@ -21,21 +20,15 @@ import com.android.volley.Response;
 import com.android.volley.VolleyError;
 import com.android.volley.toolbox.StringRequest;
 import com.android.volley.toolbox.Volley;
-import com.example.macbookpro.touristinfo.adapter.MyRecycleViewAdapter;
+import com.example.macbookpro.touristinfo.R;
 import com.example.macbookpro.touristinfo.adapter.NewInformationRecyclerViewAdapter;
 import com.example.macbookpro.touristinfo.bean.NewsInfoItemBean;
-import com.example.macbookpro.touristinfo.R;
 import com.example.macbookpro.touristinfo.bean.NewsItem;
-import com.example.macbookpro.touristinfo.bean.SettingItem;
 import com.example.macbookpro.touristinfo.database.DatabaseHelper;
 
 import org.json.JSONArray;
 import org.json.JSONObject;
 
-import java.io.BufferedInputStream;
-import java.io.InputStream;
-import java.net.HttpURLConnection;
-import java.net.URL;
 import java.util.ArrayList;
 import java.util.List;
 

@@ -11,9 +11,9 @@ import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.TextView;
 
-import com.example.macbookpro.touristinfo.bean.NewsInfoItemBean;
 import com.example.macbookpro.touristinfo.R;
 import com.example.macbookpro.touristinfo.activity.FullNewsInformationActivity;
+import com.example.macbookpro.touristinfo.bean.NewsInfoItemBean;
 import com.example.macbookpro.touristinfo.database.DatabaseHelper;
 import com.squareup.picasso.Picasso;
 

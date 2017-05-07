@@ -11,10 +11,33 @@ android {
         versionName "1.0"
         testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
     }
+
+    signingConfigs{
+        touristInfoReleaseConfig{
+            storeFile file("../config/releaseapkkey.jks");
+            storePassword("000100101001");
+            keyAlias("releaseapkkey");
+            keyPassword("000100101001");
+        }
+    }
+
     buildTypes {
-        release {
-            minifyEnabled false
+        debug{
+            minifyEnabled=true
             proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
+        }
+        release {
+            minifyEnabled true
+            zipAlignEnabled true
+            proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
+            signingConfig signingConfigs.touristInfoReleaseConfig
+        }
+        releaseDebug{
+            debuggable true
+            minifyEnabled true
+            zipAlignEnabled false
+            proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
+            signingConfig signingConfigs.touristInfoReleaseConfig
         }
     }
 }
