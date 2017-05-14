@@ -44,6 +44,7 @@ public class SettingActivity extends AppCompatActivity{
         large=(RadioButton)findViewById(R.id.large);
         light=(RadioButton)findViewById(R.id.light);
         dark=(RadioButton)findViewById(R.id.dark);
+        checkBox=(CheckBox)findViewById(R.id.checkBox);
 
         settingPreference = getSharedPreferences(mypreference,0);
         String fontsize=settingPreference.getString("fontsize","Medium");
